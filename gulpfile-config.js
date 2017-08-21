@@ -25,6 +25,11 @@ var config = {
         sourceFiles: "./app/images/**/*",
         destinationDir: "./public/img"
     },
+    views: {
+        sourceDir: "./app",
+        sourceFiles: "./app/index.html",
+        destinationDir: "./public"
+    },
     publicAssets: {
         sourceDir: "./app/static",
         sourceFiles: ["./app/static/**/*"],

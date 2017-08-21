@@ -29,7 +29,7 @@ const shouldAddSourcemaps = config.sourcemaps,
 
 
 /* Declare our gulp tasks */
-gulp.task('build', series(clean, parallel(series(styles, minifyStyles), images, publicAssets)));
+gulp.task('build', series(clean, parallel(views, series(styles, minifyStyles), images, publicAssets)));
 gulp.task('default', series('build', watch));
 
 /* Describe our gulp tasks */
@@ -42,6 +42,15 @@ function clean(done) {
 }
 clean.description = 'Cleans the build folder';
 
+
+function views() {
+    let vConfig = config.views,
+        files = vConfig.sourceFiles,
+        dest = vConfig.destinationDir;
+
+    return copy(files, dest);
+}
+views.description = 'Copy the view files to the public folder';
 
 function styles() {
     let sConfig = config.styles,
@@ -90,6 +99,7 @@ function watch(done) {
         gulp.watch(config.styles.sourceFiles, styles);
         gulp.watch(config.images.sourceFiles, images);
         gulp.watch(config.publicAssets.sourceFiles, publicAssets);
+        gulp.watch(config.views.sourceFiles, views);
     }
     done();
 }
