@@ -60,3 +60,6 @@ typings/
 # dotenv environment variables file
 .env
 
+
+# The project's public (generated) directory
+public/
