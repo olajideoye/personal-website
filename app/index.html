@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="all">
+    <meta name="description" content="The web presence of Olajide Oye — UI Designer and Front-End Developer based in Nigeria.">
+    <meta name="author" content="Olajide Oye">
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Olajide Oye — UI Designer and Front-End Developer based in Nigeria</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Kalam" rel="preload" as="style">
+    <link href="/css/styles.css" rel="preload" as="style">
+
+    <link href="https://fonts.googleapis.com/css?family=Kalam" rel="stylesheet">
+    <link href="/css/styles.css" rel="stylesheet">
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="shortcut icon" type="image/png" href="/favicon.png">
+</head>
+<body>
+<!--[if lt IE 9]>
+<p class="outdated">You're using an outdated browser. <a href="http://browsehappy.com/" rel="noopener">Upgrade to a different browser</a> to better experience this site.</p>
+<![endif]-->
+
+<div class="profile">
+    <div class="profile-image-wrap">
+        <noscript data-src="/img/profile.jpg">
+            <img src="/img/profile.jpg" alt="Olajide Oye">
+        </noscript>
+    </div>
+    <h1 class="profile-name">Olajide Oye</h1>
+    <h3 class="profile-headline">User Interface Designer &amp; Front-end Developer</h3>
+    <p class="profile-tagline">I create beautiful experiences across digital interfaces.</p>
+</div>
+
+<footer class="footer">
+    Made in 2017 with <span class="text-red">♥</span> from Ibadan, Nigeria by Olajide Oye.
+    <span class="footer-links">
+        <a target="_blank" rel="noopener" href="https://github.com/olajideoye">GitHub</a>
+        <a target="_blank" rel="noopener" href="https://linkedin.com/in/olajideoye">LinkedIn</a>
+        <a target="_blank" rel="noopener" href="https://twitter.com/olajideoye">Twitter</a>
+        <a href="mailto:olajide.oye@gmail.com?subject=Hello%20Olajide" rel="noopener">Email</a>
+    </span>
+</footer>
+<script>
+    (function () {
+        var footer = document.querySelector('.footer'),
+            footerClass = footer.className;
+
+        lazyLoadImage();
+        updateFooterClass();
+        window.onresize = updateFooterClass;
+
+        function lazyLoadImage() {
+            [].forEach.call(document.querySelectorAll('noscript'), function(noscript) {
+                var img = new Image();
+                img.setAttribute('data-src', '');
+                noscript.parentNode.insertBefore(img, noscript);
+                img.onload = function() {
+                    img.removeAttribute('data-src');
+                };
+                img.src = noscript.getAttribute('data-src');
+            });
+        }
+
+        function updateFooterClass() {
+            var newClass = footerClass;
+            if (window.innerHeight < document.documentElement.offsetHeight) {
+                newClass += ' is-overlayed';
+            }
+            footer.className = newClass;
+        }
+    })();
+</script>
+</body>
+</html>

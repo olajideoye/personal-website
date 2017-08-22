@@ -1,0 +1,70 @@
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 1rem;
+  font-family: $headings-font-family;
+  color: $headings-color;
+  font-weight: $headings-font-weight;
+}
+
+h1, h2, h3 {
+  line-height: $line-height-large;
+}
+
+h4, h5, h6 {
+  line-height: $line-height-base;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+h5 {
+  font-size: 1rem;
+}
+
+h6 {
+  font-size: .875rem;
+}
+
+p {
+  margin: 0 0 $line-height-base-computed;
+  color: $text-color;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+}
+
+ul, ol {
+  margin: $line-height-base-computed 0;
+  padding-left: 1.5rem;
+}
+
+a, a:visited {
+  color: $link-color;
+  text-decoration: underline;
+}
+
+a:hover, a:focus, a:active {
+  color: $link-hover-color;
+  cursor: pointer;
+}
+
+
+::selection {
+  background: $selection-bg;
+  color: $selection-color;
+}
+
+.text-red {
+  color: $brand-accent-red;
+}

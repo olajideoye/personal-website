@@ -1,0 +1,120 @@
+.profile {
+  width: 100%;
+  margin: 0 0 7rem;
+  padding: 0 1rem;
+
+  @include screen-breakpoint('sm') {
+    padding: 0 1.5rem;
+  }
+}
+
+.profile-image-wrap {
+  position: relative;
+  @include size(10rem);
+  margin: 7.5% auto 1rem;
+
+  img {
+    display: block;
+    @include size(100%);
+    border-radius: 50%;
+    opacity: 1;
+    transition: opacity 0.3s;
+
+    &[data-src] {
+      opacity: 0;
+    }
+  }
+
+  @include screen-breakpoint(sm) {
+    margin-top: 7%;
+  }
+
+  @include screen-breakpoint(md) {
+    margin-top: 6.5%;
+    @include size(12rem);
+  }
+
+  @include screen-breakpoint(xl) {
+    margin-top: 5%;
+    @include size(13rem);
+  }
+
+  @include screen-breakpoint(xxl) {
+    @include size(14rem);
+  }
+}
+
+.profile-name {
+  margin-bottom: .5rem;
+  color: $profile-name-color;
+  font-size: 2.25rem;
+
+  @include screen-breakpoint(sm) {
+    font-size: 2.4rem;
+  }
+
+  @include screen-breakpoint(md) {
+    font-size: 2.5rem;
+  }
+
+  @include screen-breakpoint(xl) {
+    font-size: 2.75rem;
+  }
+}
+
+.profile-headline {
+  margin-bottom: 2rem;
+  color: $profile-headline-color;
+  font-size: 1.25rem;
+  font-weight: $default-font-weight;
+
+  @include screen-breakpoint(sm) {
+    margin-bottom: 3rem;
+  }
+
+  @include screen-breakpoint(md) {
+    font-size: 1.4rem;
+    margin-bottom: 4rem;
+  }
+
+  @include screen-breakpoint(xl) {
+    font-size: 1.5rem;
+    margin-bottom: 5rem;
+  }
+
+  @include screen-breakpoint(xxl) {
+    margin-bottom: 6rem;
+  }
+}
+
+.profile-tagline {
+  max-width: 60rem;
+  margin: 0 auto;
+  color: $profile-tagline-color;
+  font-size: 1.75rem;
+  line-height: 1.2;
+  font-weight: 300;
+  // font-style: italic;
+  font-family: 'Kalam', cursive;
+
+  @include screen-breakpoint(sm) {
+    font-size: 2rem;
+  }
+
+  @include screen-breakpoint(md) {
+    width: 70%;
+    font-size: 2.4rem;
+  }
+
+  @include screen-breakpoint(lg) {
+    font-size: 2.8rem;
+  }
+
+  @include screen-breakpoint(xl) {
+    font-size: 3rem;
+  }
+
+  @include screen-breakpoint(xxl) {
+    font-size: 3.5rem;
+  }
+}

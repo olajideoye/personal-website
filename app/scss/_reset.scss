@@ -1,0 +1,33 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: $font-size-base;
+  background-color: $body-background;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+header,
+footer {
+  display: block;
+}
+
+body {
+  margin: 0;
+  color: $text-color;
+  font-family: $default-font-family;
+  font-size: 1rem;
+  line-height: $line-height-base;
+  font-weight: $default-font-weight;
+  text-align: center;
+}
+
+img {
+  display: inline-block;
+  max-width: 100%;
+}

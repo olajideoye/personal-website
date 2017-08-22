@@ -1,0 +1,78 @@
+//#
+// Colors
+//---------------
+
+$brand-primary: #8661C1;
+$brand-accent-yellow: #FFC53A;
+$brand-accent-red: #C14953;
+$white: #fff;
+
+$body-background: $white;
+
+$selection-color: $white;
+$selection-bg: transparentize($brand-primary, .125);
+
+//#
+// Typography
+//---------------
+
+$font-size-base: 16px;
+$line-height-base: 1.5;
+$line-height-base-computed: 1.5rem;
+$line-height-large: 1.1;
+
+$default-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+$default-font-weight: 400;
+$headings-font-family: inherit;
+$headings-font-weight: 700;
+
+$headings-color: #2e294e;
+$text-color: #727885;
+$text-muted: #a4abba;
+
+$link-color: $brand-primary;
+$link-hover-color: darken($link-color, 15%);
+
+
+// Breakpoints
+$breakpoint-xxs-min: (320px / $font-size-base) * 1em;  // Small phones
+$breakpoint-xs-min: (480px / $font-size-base) * 1em;   // Phones
+$breakpoint-sm-min: (600px / $font-size-base) * 1em;   // Small tablets and phablets
+$breakpoint-md-min: (768px / $font-size-base) * 1em;   // Tablets
+$breakpoint-lg-min: (1000px / $font-size-base) * 1em;  // Small desktop
+$breakpoint-xl-min: (1300px / $font-size-base) * 1em;  // Desktop
+$breakpoint-xxl-min: (1600px / $font-size-base) * 1em; // Large desktop
+
+$breakpoint-xxs-max: ($breakpoint-xs-min - .01);
+$breakpoint-xs-max: ($breakpoint-sm-min - .01);
+$breakpoint-sm-max: ($breakpoint-md-min - .01);
+$breakpoint-md-max: ($breakpoint-lg-min - .01);
+$breakpoint-lg-max: ($breakpoint-xl-min - .01);
+$breakpoint-xl-max: ($breakpoint-xxl-min - .01);
+
+
+//#
+// Outdated
+//---------------
+
+$outdated-background: $brand-accent-yellow;
+$outdated-text-color: mix(#222, $outdated-background, 95%);
+$outdated-link-color: #1a1a1a;
+$outdated-link-hover-color: darken($link-color, 8.5%);
+
+
+//#
+// Profile
+//---------------
+
+$profile-name-color: $headings-color;
+$profile-headline-color: lighten($text-color, 15%);
+$profile-tagline-color: darken($brand-primary, 10%); //$text-muted;
+
+
+//#
+// Profile
+//---------------
+
+$footer-background: $body-background;
+
