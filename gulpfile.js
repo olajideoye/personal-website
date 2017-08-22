@@ -12,6 +12,7 @@ const gulp = require('gulp'),
     sourcemaps = require('gulp-sourcemaps'),
     path = require('path'),
     livereloadServer = require('gulp-server-livereload'),
+    inlinesource = require('gulp-inline-source'),
     config = require('./gulpfile-config');
 
 
@@ -30,7 +31,7 @@ const shouldAddSourcemaps = config.sourcemaps,
 
 
 /* Declare our gulp tasks */
-gulp.task('build', series(clean, parallel(views, series(styles, minifyStyles), images, publicAssets)));
+gulp.task('build', series(clean, parallel(styles, views, images, publicAssets), inlineViewSources));
 gulp.task('default', series('build', parallel(watch, server)));
 
 /* Describe our gulp tasks */
@@ -51,6 +52,21 @@ function views() {
     return copy(files, dest);
 }
 views.description = 'Copy the view files to the public folder';
+
+
+function inlineViewSources(done) {
+    const buildDir = config.buildDir;
+
+    if (config.minify) {
+        return gulp.src(path.join(buildDir, '**/*.html'))
+                .pipe(inlinesource())
+                .pipe(gulp.dest(buildDir));
+    } else {
+        done();
+    }
+}
+inlineViewSources.description = 'Inlines all CSS, JS and images on a page with the inline attribute';
+
 
 function styles() {
     let sConfig = config.styles,

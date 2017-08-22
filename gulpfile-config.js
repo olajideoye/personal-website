@@ -27,7 +27,7 @@ var config = {
     },
     views: {
         sourceDir: "./app",
-        sourceFiles: "./app/index.html",
+        sourceFiles: "./app/**/*.html",
         destinationDir: "./public"
     },
     publicAssets: {
