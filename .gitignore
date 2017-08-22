@@ -63,3 +63,6 @@ typings/
 
 # The project's public (generated) directory
 public/
+
+# CNAME for deploys to Surge
+CNAME
