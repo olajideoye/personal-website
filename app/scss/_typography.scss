@@ -52,6 +52,7 @@ ul, ol {
 a, a:visited {
   color: $link-color;
   text-decoration: underline;
+  transition: color .3s;
 }
 
 a:hover, a:focus, a:active {
