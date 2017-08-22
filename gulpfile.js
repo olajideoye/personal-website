@@ -11,6 +11,7 @@ const gulp = require('gulp'),
     rimraf = require('rimraf'),
     sourcemaps = require('gulp-sourcemaps'),
     path = require('path'),
+    livereloadServer = require('gulp-server-livereload'),
     config = require('./gulpfile-config');
 
 
@@ -30,7 +31,7 @@ const shouldAddSourcemaps = config.sourcemaps,
 
 /* Declare our gulp tasks */
 gulp.task('build', series(clean, parallel(views, series(styles, minifyStyles), images, publicAssets)));
-gulp.task('default', series('build', watch));
+gulp.task('default', series('build', parallel(watch, server)));
 
 /* Describe our gulp tasks */
 gulp.task('build').description = 'Clean out the build folder then compile styles, minify images, and copy assets into the build folder';
@@ -41,7 +42,6 @@ function clean(done) {
     rimraf(config.buildDir, done);
 }
 clean.description = 'Cleans the build folder';
-
 
 function views() {
     let vConfig = config.views,
@@ -73,6 +73,23 @@ function minifyStyles(done) {
     done();
 }
 minifyStyles.description = 'Minify CSS files';
+
+
+function server(done) {
+    if (development()) {
+        return gulp.src(config.buildDir)
+            .pipe(livereloadServer({
+                livereload: true,
+                port: 5000,
+                directoryListing: false,
+                fallback: 'index.html',
+                open: true,
+            }));
+    }
+    else {
+        done();
+    }
+}
 
 function publicAssets() {
     let aConfig = config.publicAssets,
