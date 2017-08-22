@@ -136,6 +136,11 @@
     vertical-align: top;
   }
 
+  img {
+    opacity: .4;
+    transition: opacity .3s;
+  }
+
   svg {
     display: block;
     @include size(100%);
@@ -148,6 +153,10 @@
   &:active {
     text-decoration: none;
     color: $profile-link-hover-color;
+
+    img {
+      opacity: .9;
+    }
 
     svg {
       fill: $profile-link-hover-color;
