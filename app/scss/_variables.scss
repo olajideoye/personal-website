@@ -66,10 +66,15 @@ $outdated-link-hover-color: darken($link-color, 8.5%);
 //---------------
 
 $profile-name-color: $headings-color;
-$profile-headline-color: lighten($text-color, 15%);
+$profile-headline-color: darken($text-muted, 15%);
 $profile-description-color: $text-muted;
 
-$profile-link-color: desaturate($text-muted, 20%); // #aeacb1; // #a9a9a9;
+$profile-description-link-color: $text-muted;
+$profile-description-link-border-color: $text-muted;
+$profile-description-link-hover-color: darken($profile-description-link-color, 15%);
+$profile-description-link-border-hover-color: $link-color;
+
+$profile-link-color: darken($text-muted, 5%);
 $profile-link-hover-color: $link-hover-color;
 
 //#

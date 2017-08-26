@@ -99,7 +99,32 @@
   font-weight: 300;
 
    a {
-     font-weight: 500;
+     position: relative;
+     text-decoration: none;
+     color: $profile-description-link-color;
+
+     &:after {
+       content: "";
+       position: absolute;
+       left: 0;
+       right: 0;
+       top: 100%;
+       height: 1px;
+       background-color: $profile-description-link-border-color;
+       transition: all .3s;
+
+       @include screen-breakpoint(md) {
+         height: 2px;
+       }
+     }
+
+     &:hover, &:focus, &:active {
+       color: $profile-description-link-hover-color;
+
+       &:after {
+         background-color: $profile-description-link-border-hover-color;
+       }
+     }
    }
 
   @include screen-breakpoint(sm) {
