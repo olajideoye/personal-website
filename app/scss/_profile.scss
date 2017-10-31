@@ -21,12 +21,6 @@
     display: block;
     @include size(100%);
     border-radius: 50%;
-    opacity: 1;
-    transition: opacity 0.3s;
-
-    &[data-src] {
-      opacity: 0;
-    }
   }
 
   @include screen-breakpoint(sm) {
@@ -98,34 +92,34 @@
   font-size: 1.2rem;
   font-weight: 300;
 
-   a {
-     position: relative;
-     text-decoration: none;
-     color: $profile-description-link-color;
+  a {
+    position: relative;
+    text-decoration: none;
+    color: $profile-description-link-color;
 
-     &:after {
-       content: "";
-       position: absolute;
-       left: 0;
-       right: 0;
-       top: 100%;
-       height: 1px;
-       background-color: $profile-description-link-border-color;
-       transition: all .3s;
+    &:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 100%;
+      height: 1px;
+      background-color: $profile-description-link-border-color;
+      transition: all .3s;
 
-       @include screen-breakpoint(md) {
-         height: 2px;
-       }
-     }
+      @include screen-breakpoint(md) {
+        height: 2px;
+      }
+    }
 
-     &:hover, &:focus, &:active {
-       color: $profile-description-link-hover-color;
+    &:hover, &:focus, &:active {
+      color: $profile-description-link-hover-color;
 
-       &:after {
-         background-color: $profile-description-link-border-hover-color;
-       }
-     }
-   }
+      &:after {
+        background-color: $profile-description-link-border-hover-color;
+      }
+    }
+  }
 
   @include screen-breakpoint(sm) {
     font-size: 1.4rem;

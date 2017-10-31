@@ -5,8 +5,8 @@
     <meta name="robots" content="all">
     <meta name="description" content="The web presence of Olajide Oye — UI Designer and Front-End Developer based in Nigeria.">
     <meta name="author" content="Olajide Oye">
-    <meta name="HandheldFriendly" content="true" />
-    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0" />
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <title>Olajide Oye — UI Designer and Front-End Developer based in Nigeria</title>
@@ -18,12 +18,13 @@
 </head>
 <body>
 <!--[if lt IE 9]>
-<p class="outdated">You're using an outdated browser. <a href="http://browsehappy.com/" rel="noopener">Upgrade to a different browser</a> to better experience this site.</p>
+<p class="outdated">You're using an outdated browser. <a href="http://browsehappy.com/" rel="noopener">Upgrade to a
+    different browser</a> to better experience this site.</p>
 <![endif]-->
 
 <div class="profile">
     <div class="profile-image-wrap">
-        <noscript data-src="/img/profile.jpg">
+        <noscript data-img-src="/img/profile.jpg">
             <img src="/img/profile.jpg" alt="Olajide Oye">
         </noscript>
     </div>
@@ -36,19 +37,20 @@
     <div class="profile-links">
         <a target="_blank" rel="noopener" class="profile-link" href="https://github.com/olajideoye">
             <span class="sr-only">GitHub</span>
-            <img src="img/github.svg" alt="GitHub" inline>
+            <img src="/img/github.svg" alt="GitHub" inline>
         </a>
         <a target="_blank" rel="noopener" class="profile-link" href="https://linkedin.com/in/olajideoye">
             <span class="sr-only">LinkedIn</span>
-            <img src="img/linkedin.svg" alt="LinkedIn" inline>
+            <img src="/img/linkedin.svg" alt="LinkedIn" inline>
         </a>
         <a target="_blank" rel="noopener" class="profile-link" href="https://twitter.com/olajideoye">
             <span class="sr-only">Twitter</span>
-            <img src="img/twitter.svg" alt="Twitter" inline>
+            <img src="/img/twitter.svg" alt="Twitter" inline>
         </a>
-        <a target="_blank" rel="noopener" class="profile-link" href="mailto:olajide.oye@gmail.com?subject=Hello%20Olajide">
+        <a target="_blank" rel="noopener" class="profile-link"
+           href="mailto:olajide.oye@gmail.com?subject=Hello%20Olajide">
             <span class="sr-only">Email</span>
-            <img src="img/email.svg" alt="Email" inline>
+            <img src="/img/email.svg" alt="Email" inline>
         </a>
     </div>
 </div>
@@ -57,25 +59,26 @@
     Made in 2017 with <span class="text-red">♥</span> from Ibadan, Nigeria.
 </footer>
 <script>
-    (function () {
+    (function (window, document) {
         var footer = document.querySelector('.footer'),
-            footerClass = footer.className;
+            footerClass = footer.className,
+            noscript = document.querySelector('noscript'),
+            imageSource = noscript.getAttribute('data-img-src');
 
-        lazyLoadImage();
+        lazyLoadImage(imageSource, noscript, 'Olajide Oye');
         updateFooterClass();
         window.onresize = updateFooterClass;
 
-        function lazyLoadImage() {
-            [].forEach.call(document.querySelectorAll('noscript'), function(noscript) {
-                var img = new Image();
-                img.setAttribute('data-src', '');
-                img.setAttribute('alt', 'Olajide Oye');
-                noscript.parentNode.insertBefore(img, noscript);
-                img.onload = function() {
-                    img.removeAttribute('data-src');
-                };
-                img.src = noscript.getAttribute('data-src');
-            });
+        function lazyLoadImage(source, insertBeforeElement, alt) {
+            alt = alt || '';
+            var img = new Image();
+            img.className = 'fade';
+            img.setAttribute('alt', alt);
+            insertBeforeElement.parentNode.insertBefore(img, insertBeforeElement);
+            img.onload = function () {
+                img.className += ' in';
+            };
+            img.src = source;
         }
 
         function updateFooterClass() {
@@ -85,7 +88,7 @@
             }
             footer.className = newClass;
         }
-    })();
+    })(window, document);
 </script>
 </body>
 </html>
