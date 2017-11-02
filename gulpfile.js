@@ -31,7 +31,7 @@ const shouldAddSourcemaps = config.sourcemaps,
 
 
 /* Declare our gulp tasks */
-gulp.task('build', series(clean, parallel(styles, views, images, publicAssets), inlineViewSources));
+gulp.task('build', series(clean, parallel(styles, scripts, views, images, publicAssets), inlineViewSources));
 gulp.task('default', series('build', parallel(watch, server)));
 
 /* Describe our gulp tasks */
@@ -66,6 +66,12 @@ function inlineViewSources(done) {
     }
 }
 inlineViewSources.description = 'Inlines all CSS, JS and images on a page with the inline attribute';
+
+
+function scripts() {
+    return copy(config.scripts.sourceFiles, config.scripts.destinationDir);
+}
+scripts.description = 'Copy the script files to the public folder';
 
 
 function styles() {
@@ -130,6 +136,7 @@ images.description = 'Minify images back into the same (source) folder';
 function watch(done) {
     if (development()) {
         gulp.watch(config.styles.sourceFiles, styles);
+        gulp.watch(config.scripts.sourceFiles, scripts);
         gulp.watch(config.images.sourceFiles, images);
         gulp.watch(config.publicAssets.sourceFiles, publicAssets);
         gulp.watch(config.views.sourceFiles, views);
