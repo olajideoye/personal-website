@@ -25,14 +25,15 @@
 
 <div class="profile">
     <div class="profile-image-wrap">
-        <noscript data-img-src="/img/profile.jpg">
+        <noscript id="profile-image-noscript">
             <img src="/img/profile.jpg" alt="Olajide Oye">
         </noscript>
     </div>
     <h1 class="profile-name">Olajide Oye</h1>
     <h3 class="profile-headline">I design and build intuitive user interfaces</h3>
     <p class="profile-description">
-        I currently lead Design and Front-end development at <a target="_blank" rel="noopener" href="http://cottacush.com">Cotta &amp; Cush</a>.
+        I currently lead Design and Front-end development at
+        <a target="_blank" rel="noopener" href="http://cottacush.com">Cotta &amp; Cush</a>.
         <br>I'm finishing work on something wonderful. Stay in touch.
     </p>
     <div class="profile-links">
@@ -56,40 +57,9 @@
     </div>
 </div>
 
-<footer class="footer">
+<footer id="footer" class="footer">
     Made in 2017 with <span class="text-red">♥</span> from Ibadan, Nigeria.
 </footer>
-<script>
-    (function (window, document) {
-        var footer = document.querySelector('.footer'),
-            footerClass = footer.className,
-            noscript = document.querySelector('noscript'),
-            imageSource = noscript.getAttribute('data-img-src');
-
-        lazyLoadImage(imageSource, noscript, 'Olajide Oye');
-        updateFooterClass();
-        window.onresize = updateFooterClass;
-
-        function lazyLoadImage(source, insertBeforeElement, alt) {
-            alt = alt || '';
-            var img = new Image();
-            img.className = 'fade';
-            img.setAttribute('alt', alt);
-            insertBeforeElement.parentNode.insertBefore(img, insertBeforeElement);
-            img.onload = function () {
-                img.className += ' in';
-            };
-            img.src = source;
-        }
-
-        function updateFooterClass() {
-            var newClass = footerClass;
-            if (window.innerHeight < document.documentElement.offsetHeight) {
-                newClass += ' is-overlayed';
-            }
-            footer.className = newClass;
-        }
-    })(window, document);
-</script>
+<script type="text/javascript" src="/js/site.js" inline></script>
 </body>
 </html>
