@@ -34,7 +34,8 @@ var config = {
         sourceDir: "./app/static",
         sourceFiles: ["./app/static/**/*"],
         destinationDir: "./public"
-    }
+    },
+    inlineSourceOptions: {}
 };
 
 /* Add sourcemaps on all environments except production */
@@ -42,6 +43,14 @@ config.sourcemaps = !(environments.production());
 
 /* Minify build files on all environments except development */
 config.minify = !(environments.development());
+
+/* Inline source on all environments */
+config.inlineSource = true;
+
+/* Modify inlineSourceOptions on development environment */
+if (environments.development()) {
+    config.inlineSourceOptions.ignore = ['css', 'js'];
+}
 
 
 module.exports = config;

@@ -18,8 +18,7 @@ const gulp = require('gulp'),
 
 /* Declare our environments */
 const development = environments.development,
-    staging = environments.make('staging'),
-    production = environments.production;
+    staging = environments.make('staging');
 
 /* Set gulp.series and gulp.parallel to constants for convenience sake */
 const series = gulp.series,
@@ -31,7 +30,7 @@ const shouldAddSourcemaps = config.sourcemaps,
 
 
 /* Declare our gulp tasks */
-gulp.task('build', series(clean, parallel(styles, scripts, views, images, publicAssets), inlineViewSources));
+gulp.task('build', series(clean, parallel(styles, scripts, views, images, publicAssets), inlineSources));
 gulp.task('default', series('build', parallel(watch, server)));
 
 /* Describe our gulp tasks */
@@ -54,18 +53,18 @@ function views() {
 views.description = 'Copy the view files to the public folder';
 
 
-function inlineViewSources(done) {
+function inlineSources(done) {
     const buildDir = config.buildDir;
 
-    if (config.minify) {
+    if (config.inlineSource) {
         return gulp.src(path.join(buildDir, '**/*.html'))
-                .pipe(inlinesource())
+                .pipe(inlinesource(config.inlineSourceOptions))
                 .pipe(gulp.dest(buildDir));
     } else {
         done();
     }
 }
-inlineViewSources.description = 'Inlines all CSS, JS and images on a page with the inline attribute';
+inlineSources.description = 'Inlines all CSS, JS and images on a page with the inline attribute';
 
 
 function scripts() {
