@@ -61,8 +61,14 @@ typings/
 .env
 
 
+# Parcel cache
+.cache
+
 # The project's public (generated) directory
 public/
 
 # CNAME for deploys to Surge
 CNAME
+
+# DS store
+.DS_Store

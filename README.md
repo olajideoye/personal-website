@@ -45,7 +45,7 @@ To continue front-end development on this project run the following in your term
 ```bash
 npm run dev
 ```
-This creates a new Node.js server at `http://localhost:5000` with live-reloading when you make code changes.
+This creates a new Node.js server at `http://localhost:1234` with live-reloading when you make code changes.
 
 ### Build for production
 To do a simple build for production, run the following in your terminal:
@@ -61,4 +61,4 @@ npm run build
 This project is licensed under the MIT license. You can grab it [here](https://github.com/olajideoye/personal-website/blob/master/LICENSE)
 
 ## Credits
-- Ọlájídé Oyè <olajide.oye@gmail.com>
+- Jide Oye <olajide.oye@gmail.com>
